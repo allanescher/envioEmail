@@ -36,8 +36,8 @@ def writeMail(to, subject, body, email):
 
 #### Função para enviar e-mail
 ```bash
-def sendMail(mail, prov):
-    server = smtplib.SMTP(p, 587)  #Determinação do host e da porta de envio
+def sendMail(mail):
+    server = smtplib.SMTP(SMTP_PROVIDER, 587)  #Determinação do host e da porta de envio
     server.ehlo()
     server.starttls() #Criptografia para iniciar conexão segura
     server.ehlo()
