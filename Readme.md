@@ -1,5 +1,14 @@
 ## TUTORIAL ENVIO E-MAIL
 
+#### Grupo
+```bash
+Allan Bossoni Escher
+André Luis Dörr
+Caio Lemes
+Lucas Emanuel
+Rodolfo Osório
+```
+
 #### Bibliotecas utilizadas
 ```bash
 import smtplib
@@ -9,9 +18,8 @@ from email.mime.text import MIMEText
 
 #### Definição do Provedor de envio de e-mail
 ```bash
-SMTP_PROVIDER = [
-    'smtp.office365.com'
-]
+SMTP_PROVIDER = 'smtp.office365.com'
+
 ```
 
 #### Função para informar parâmetros ao servidor
