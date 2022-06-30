@@ -31,7 +31,7 @@ def sendMail(mail):
 
 send_mail = 0
 while send_mail != 2:
-    send_mail = int(input("Deseja enviar e-mail, digite 1 para envio?\n"))
+    send_mail = int(input("Deseja 1 para enviar e-mail, digite 2 para sair?\n"))
     if(send_mail == 1):
         SENDER_MAIL = input('Digite o seu email\n')
         SENDER_PASS = input('Digite a sua senha\n')
@@ -40,5 +40,4 @@ while send_mail != 2:
         body = input('Digite o conteudo do email\n')
         mail = writeMail(toMail, subject, body, SENDER_MAIL)
         sendMail(mail)
-        send_mail = 2
         print('Email enviado com sucesso!!!')
