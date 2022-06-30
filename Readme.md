@@ -20,7 +20,7 @@ SMTP_PROVIDER = [
 ]
 ```
 
-#### Função para informar 
+#### Função para informar parâmetros ao servidor
 ```bash
 def writeMail(to, subject, body, email):
     msg = MIMEMultipart() #Declarando msg
@@ -37,10 +37,9 @@ def writeMail(to, subject, body, email):
 #### Função para enviar e-mail
 ```bash
 def sendMail(mail, prov):
-    p = SMTP_PROVIDER[0] if prov == 'outlook' else SMTP_PROVIDER[1] #Condição para enviar e-mail pelo provedor outlook
     server = smtplib.SMTP(p, 587)  #Determinação do host e da porta de envio
     server.ehlo()
-    server.starttls() #Criptografia para envio de e-mail
+    server.starttls() #Criptografia para iniciar conexão segura
     server.ehlo()
     server.login(SENDER_MAIL, SENDER_PASS)  #Passagem para o servidor dos parâmetros de envio, como e-mail e senha
     server.send_message(mail) #Passando o e-mail para envio do servidor
@@ -48,3 +47,17 @@ def sendMail(mail, prov):
 ```
 
 #### Funcão 
+```bash
+send_mail = 0 
+while send_mail != 2: #While para enviar e-mail
+    send_mail = int(input("Deseja 1 para enviar e-mail, digite 2 para sair?\n")) #Variável para prosseguir ou sair do While
+    if(send_mail == 1): #Condição para enviar e-mail
+        SENDER_MAIL = input('Digite o seu email\n') #Variável para receber o e-mail do remetente
+        SENDER_PASS = input('Digite a sua senha\n') #Variável para receber a senha do usuário remetente
+        toMail = input('Digite o email do destinatário\n') #Variável para receber o e-mail do destinatário
+        subject = input('Digite o titulo do email\n') #Variável para receber o título do e-mail
+        body = input('Digite o conteudo do email\n') #Variável para receber o corpo do e-mail
+        mail = writeMail(toMail, subject, body, SENDER_MAIL) #Variável que chama função que envia as informações para o servidor
+        sendMail(mail) #Função que envia o e-mail
+        print('Email enviado com sucesso!!!')
+```
