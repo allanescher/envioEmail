@@ -7,12 +7,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 ```
 
-#### Inclusão das credenciais
-```bash
-SENDER_MAIL = ''
-SENDER_PASS = ''
-```
-
 #### Definição do Provedor de envio de e-mail
 ```bash
 SMTP_PROVIDER = [
@@ -29,7 +23,7 @@ def writeMail(to, subject, body, email):
     msg['Subject'] = subject #Carregando assunto do e-mail
     body = body #Carregando corpo do e-mail
     msg.attach(MIMEText(body, 'plain')) #Informar o tipo de informação a ser enviado, sendo em html ou texto no corpo do e-mail
-    #msg.attach(MIMEText(body, 'html'))
+
 
     return msg #Retorno da função
 ```
